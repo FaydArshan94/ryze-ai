@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+@font-face {
+  font-family: Inter;
+  src: url("/Inter-VariableFont_opsz,wght.ttf");
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
