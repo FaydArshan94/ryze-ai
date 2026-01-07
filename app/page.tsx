@@ -8,10 +8,13 @@ import FinalCTA from "@/components/sections/CTA";
 import Navbar from "@/components/layout/Navbar";
 import MarqueeSection from "@/components/sections/Marquee";
 import AIFlowSection from "@/components/sections/AIFlowSection";
+import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const page = () => {
   return (
     <div>
+      <SmoothScroll />
       <Navbar />
       <HeroSection />
       <ProblemSolution />
@@ -20,6 +23,7 @@ const page = () => {
       <AIFlowSection />
       <MarqueeSection />
       <FinalCTA />
+      <Footer />
     </div>
   );
 };
