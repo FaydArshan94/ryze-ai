@@ -5,6 +5,7 @@ import {
   Target,
   Database,
   CheckCircle,
+  type LucideIcon,
 } from "lucide-react";
 
 import gsap from "gsap";
@@ -22,7 +23,7 @@ interface Step {
   description: string;
   icon: LucideIcon;
   color: string;
-}
+} 
 
 interface message {
   type: "ai" | "user";
