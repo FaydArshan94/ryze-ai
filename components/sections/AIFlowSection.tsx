@@ -23,9 +23,9 @@ interface Step {
   description: string;
   icon: LucideIcon;
   color: string;
-} 
+}
 
-interface message {
+interface Message {
   type: "ai" | "user";
   text: string;
   step: number;
@@ -37,7 +37,8 @@ export default function AIFlowSection() {
   const chatRef = useRef<HTMLDivElement>(null);
 
   const [activeStep, setActiveStep] = useState(0);
-  const [visibleMessages, setVisibleMessages] = useState([]);
+  const [visibleMessages, setVisibleMessages] = useState<Message[]>([]);
+
   const sectionRef = useRef(null);
 
   const steps = [
@@ -72,46 +73,25 @@ export default function AIFlowSection() {
     },
   ];
 
-  const chatMessages = [
-    {
-      type: "ai",
-      text: "Hi! 👋 I'm here to help. What brings you to our site today?",
-      step: 0,
-    },
-    {
-      type: "user",
-      text: "I'm looking for a solution to capture more leads from my website.",
-      step: 1,
-    },
-    {
-      type: "ai",
-      text: "Great! I can help with that. What's your current monthly website traffic?",
-      step: 2,
-    },
-    { type: "user", text: "Around 10,000 visitors per month.", step: 2 },
-    {
-      type: "ai",
-      text: "Perfect! And what's your biggest challenge with lead generation right now?",
-      step: 3,
-    },
-    {
-      type: "user",
-      text: "Most visitors leave without taking any action.",
-      step: 3,
-    },
-    {
-      type: "ai",
-      text: "I understand. Based on your needs, I'd recommend booking a personalized demo. Would Tuesday or Wednesday work better for you?",
-      step: 3,
-    },
-    { type: "user", text: "Tuesday works great!", step: 3 },
-    {
-      type: "ai",
-      text: "✅ Perfect! I've captured your information and a demo specialist will reach out shortly. Check your email for confirmation.",
-      step: 4,
-      highlight: true,
-    },
-  ];
+const messages: Message[] = [
+  {
+    type: "ai",
+    text: "Hey! I can qualify your visitors in real time.",
+    step: 0,
+  },
+  {
+    type: "user",
+    text: "How does that work?",
+    step: 1,
+  },
+  {
+    type: "ai",
+    text: "I ask smart questions and book qualified demos.",
+    step: 2,
+    highlight: true,
+  },
+];
+
 
   useEffect(() => {
     if (!sectionRef.current || !stepsRef.current) return;
@@ -141,22 +121,20 @@ export default function AIFlowSection() {
     return () => ctx.revert();
   }, []);
 
-
   useEffect(() => {
-  if (!chatRef.current) return;
+    if (!chatRef.current) return;
 
-  gsap.from(chatRef.current, {
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: sectionRef.current,
-      start: 'top 65%',
-    },
-  });
-}, []);
-
+    gsap.from(chatRef.current, {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 65%",
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -169,7 +147,7 @@ export default function AIFlowSection() {
                 setActiveStep(currentStep);
 
                 // Show messages for this step
-                const messagesForStep = chatMessages.filter(
+                const messagesForStep = messages.filter(
                   (msg) => msg.step <= currentStep
                 );
                 setVisibleMessages(messagesForStep);
