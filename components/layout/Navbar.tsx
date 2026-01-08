@@ -4,8 +4,16 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Product", href: "#product" },
@@ -16,15 +24,35 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 backdrop-blur-3xl py-1 left-0 right-0 z-50 border-0 bg-[#050D26]">
+      <nav
+        className={`
+    fixed top-0 left-0 right-0 z-50
+    backdrop-blur-3xl
+    bg-[#050D26]
+    transition-all duration-300 ease-out
+    ${isScrolled ? "py-0" : "py-1"}
+  `}
+      >
         <div className="animate-navbar-enter">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16 lg:h-20">
+            <div
+              className={`
+    flex items-center justify-between
+    transition-all duration-300
+    ${isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}
+  `}
+            >
               {/* Logo */}
               <Link href="/">
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <span className="text-2xl xl:text-4xl font-black tracking-wider font-[Inter] text-white">
-                    Ryze{" "}
+                  <span
+                    className={`
+    font-black tracking-wider font-[Inter] text-white
+    transition-all duration-300
+    ${isScrolled ? "text-xl xl:text-3xl" : "text-2xl xl:text-4xl"}
+  `}
+                  >
+                    Ryze
                   </span>
                 </div>
               </Link>
@@ -46,7 +74,16 @@ export default function Navbar() {
                 >
                   Login
                 </a>
-                <button className="px-5 py-2.5 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-sm text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300">
+                <button
+                  className={`
+    bg-linear-to-r from-blue-600 to-cyan-600
+    rounded-lg font-semibold text-white
+    shadow-lg shadow-blue-500/20
+    hover:shadow-blue-500/40 hover:scale-105
+    transition-all duration-300
+    ${isScrolled ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"}
+  `}
+                >
                   Get Free Demo
                 </button>
               </div>
@@ -88,7 +125,7 @@ export default function Navbar() {
           className={`relative h-full flex flex-col pt-20 px-6 transition-transform duration-300
           ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
           `}
-          >
+        >
           <div className="flex-1 space-y-2">
             {navLinks.map((link) => (
               <a
@@ -122,7 +159,7 @@ export default function Navbar() {
       </div>
 
       {/* Spacer to prevent content from going under fixed navbar */}
-      <div className="h-16 lg:h-20"></div>
+      <div className={isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"} />
     </>
   );
 }

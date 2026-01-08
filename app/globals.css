@@ -147,3 +147,79 @@
   animation: navbar-enter 0.6s ease-out;
 }
 
+
+
+
+@keyframes orbit {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(360deg); }
+        }
+
+        .animate-orbit {
+          animation: orbit 20s linear infinite;
+        }
+
+        /* Responsive radius values */
+        @media (max-width: 640px) {
+          .card-1 {
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(140px);
+          }
+          .card-2 {
+            transform: translate(-50%, -50%) rotateY(90deg) translateZ(140px);
+          }
+          .card-3 {
+            transform: translate(-50%, -50%) rotateY(180deg) translateZ(140px);
+          }
+          .card-4 {
+            transform: translate(-50%, -50%) rotateY(270deg) translateZ(140px);
+          }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+          .card-1 {
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(180px);
+          }
+          .card-2 {
+            transform: translate(-50%, -50%) rotateY(90deg) translateZ(180px);
+          }
+          .card-3 {
+            transform: translate(-50%, -50%) rotateY(180deg) translateZ(180px);
+          }
+          .card-4 {
+            transform: translate(-50%, -50%) rotateY(270deg) translateZ(180px);
+          }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .card-1 {
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(210px);
+          }
+          .card-2 {
+            transform: translate(-50%, -50%) rotateY(90deg) translateZ(210px);
+          }
+          .card-3 {
+            transform: translate(-50%, -50%) rotateY(180deg) translateZ(210px);
+          }
+          .card-4 {
+            transform: translate(-50%, -50%) rotateY(270deg) translateZ(210px);
+          }
+        }
+
+        @media (min-width: 1025px) {
+          .card-1 {
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(240px);
+          }
+          .card-2 {
+            transform: translate(-50%, -50%) rotateY(90deg) translateZ(240px);
+          }
+          .card-3 {
+            transform: translate(-50%, -50%) rotateY(180deg) translateZ(240px);
+          }
+          .card-4 {
+            transform: translate(-50%, -50%) rotateY(270deg) translateZ(240px);
+          }
+        }
+
+        .preserve-3d {
+          transform-style: preserve-3d;
+        }
