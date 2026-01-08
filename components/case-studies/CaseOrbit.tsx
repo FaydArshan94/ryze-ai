@@ -8,7 +8,7 @@ export default function CaseOrbit() {
     <div className="relative w-full max-w-[320px] h-[320px] sm:max-w-[400px] sm:h-[400px] md:max-w-[480px] md:h-[480px] lg:max-w-[520px] lg:h-[520px] mx-auto perspective-[1200px] overflow-visible">
       {/* AI Core (Center) */}
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 xl:w-40 xl:h-40 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-base sm:text-lg md:text-xl shadow-[0_0_50px_rgba(34,211,238,0.4)] z-20">
+        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 xl:w-40 xl:h-40 rounded-full bg-linear-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-base sm:text-lg md:text-xl shadow-[0_0_50px_rgba(34,211,238,0.4)] z-20">
           Ryze AI
         </div>
       </div>
