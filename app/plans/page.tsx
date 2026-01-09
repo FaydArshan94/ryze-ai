@@ -7,13 +7,11 @@ import HowPricingWorks from "@/components/plans/HowPricingWorks";
 import ROISection from "@/components/plans/ROISection";
 import SoftComparison from "@/components/plans/SoftComparison";
 import FinalCTA from "@/components/plans/PlanCta";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+
 
 export default function PlansPage() {
   return (
-    <div className="bg-slate-950">
-      <Navbar />
+    <div className="bg-linear-to-br from-slate-950 via-blue-950 to-slate-900">
       <PlansHero />
       <PlanTiers />
       <AllPlansFeatures />
@@ -21,7 +19,6 @@ export default function PlansPage() {
       <ROISection />
       <SoftComparison />
       <FinalCTA />
-      <Footer />
     </div>
   );
 }

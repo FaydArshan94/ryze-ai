@@ -26,9 +26,11 @@ export default function CaseProofCard(props: Props) {
   useEffect(() => {
     if (!ref.current) return;
 
-    gsap.from(ref.current, {
-      opacity: 0,
-      y: 40,
+    gsap.fromTo(ref.current, 
+      {opacity: 0, y: 40},
+       {
+      opacity: 1,
+      y: 0,
       duration: 0.6,
       ease: "power3.out",
       scrollTrigger: {

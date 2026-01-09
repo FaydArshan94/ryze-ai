@@ -7,6 +7,7 @@ import {
   ArrowDown,
 } from "lucide-react";
 import CaseOrbit from "../case-studies/CaseOrbit";
+import { motion, Variants } from "framer-motion";
 
 interface MetricCard {
   value: string;
@@ -24,6 +25,25 @@ interface MetricCard {
 }
 
 export default function CaseStudiesHero() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
   const trustTags: string[] = ["B2B", "D2C", "SaaS", "Performance Marketing"];
 
   return (
@@ -37,12 +57,17 @@ export default function CaseStudiesHero() {
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-80 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-28 lg:pb-32">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start min-h-[calc(100vh-8rem)] sm:min-h-[calc(100vh-12rem)]">
           {/* LEFT - Text Content */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="space-y-6 sm:space-y-8 text-center lg:text-left"
+          >
             {/* Headline */}
-            <div className="space-y-3 sm:space-y-4">
+            <motion.div variants={item} className="space-y-3 sm:space-y-4">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-white mb-1 sm:mb-2">
                   Real Growth,
@@ -60,10 +85,13 @@ export default function CaseStudiesHero() {
                 See how modern teams use Ryze AI to qualify leads, increase
                 ROAS, and automate growth — without guesswork.
               </p>
-            </div>
+            </motion.div>
 
             {/* Trust Tags */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-start">
+            <motion.div
+              variants={item}
+              className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-start"
+            >
               {trustTags.map((tag, index) => (
                 <div
                   key={index}
@@ -74,7 +102,7 @@ export default function CaseStudiesHero() {
                   </span>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Scroll Hint */}
             <div className="hidden lg:flex items-center gap-3 text-slate-400 pt-8">
@@ -83,7 +111,7 @@ export default function CaseStudiesHero() {
                 Scroll to explore results
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT - Orbit */}
           <div className="relative flex items-center justify-center mt-8 lg:mt-0">
@@ -91,27 +119,6 @@ export default function CaseStudiesHero() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 }

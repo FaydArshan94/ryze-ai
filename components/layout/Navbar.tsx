@@ -16,41 +16,44 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Product", href: "#product" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Resources", href: "#resources" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Plans", href: "/plans" },
+    { name: "About", href: "/about" },
   ];
 
   return (
     <>
       <nav
         className={`
-    fixed top-0 left-0 right-0 z-50
-    backdrop-blur-3xl
-    bg-[#050D26]
-    transition-all duration-300 ease-out
-    ${isScrolled ? "py-0" : "py-1"}
-  `}
+            fixed top-0 left-0 right-0 z-50
+            backdrop-blur-3xl
+            bg-[#050D26]
+            transition-all duration-300 ease-out
+            ${isScrolled ? "py-0" : "py-1"}
+          `}
       >
         <div className="animate-navbar-enter">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
               className={`
-    flex items-center justify-between
-    transition-all duration-300
-    ${isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}
-  `}
+              flex items-center justify-between
+              transition-all duration-300
+              ${isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}
+            `}
             >
               {/* Logo */}
               <Link href="/">
                 <div className="flex items-center gap-2 cursor-pointer">
                   <span
                     className={`
-    font-black tracking-wider font-[Inter] text-white
-    transition-all duration-300
-    ${isScrolled ? "text-xl xl:text-3xl" : "text-2xl xl:text-4xl"}
-  `}
+                    font-black tracking-wider font-[Inter] text-white
+                    transition-all duration-300
+                    ${
+                      isScrolled
+                        ? "text-xl xl:text-3xl"
+                        : "text-2xl xl:text-4xl"
+                    }
+                    `}
                   >
                     Ryze
                   </span>
@@ -68,24 +71,21 @@ export default function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <a
-                  href="#login"
-                  className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
-                >
-                  Login
-                </a>
-                <button
-                  className={`
-    bg-linear-to-r from-blue-600 to-cyan-600
-    rounded-lg font-semibold text-white
-    shadow-lg shadow-blue-500/20
-    hover:shadow-blue-500/40 hover:scale-105
-    transition-all duration-300
-    ${isScrolled ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"}
+
+                <Link href="/plans">
+                  <button
+                    className={`
+                  bg-linear-to-r from-blue-600 to-cyan-600
+                  rounded-lg font-semibold text-white
+                  shadow-lg shadow-blue-500/20
+                  hover:shadow-blue-500/40 hover:scale-105
+                  transition-all duration-300
+                  ${isScrolled ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"}
   `}
-                >
-                  Get Free Demo
-                </button>
+                  >
+                    Get Free Demo
+                  </button>
+                </Link>
               </div>
 
               {/* Mobile Menu Button */}

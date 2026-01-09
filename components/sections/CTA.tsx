@@ -9,17 +9,10 @@ ScrollTrigger.config({
 });
 
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function FinalCTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  const handleCTAClick = () => {
-    // Scroll to demo booking or contact section
-    const demoSection = document.getElementById("demo-booking");
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -104,16 +97,15 @@ export default function FinalCTA() {
 
           {/* CTA Button */}
           <div className="cta-button pt-4">
-            <button
-              onClick={handleCTAClick}
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-600 rounded-xl font-bold text-lg text-white shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300"
-            >
-              <span>Get Free Demo</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Link href="/plans">
+              <button className="group relative inline-flex items-center gap-3 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-600 rounded-xl font-bold text-lg text-white shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300">
+                <span>Get Free Demo</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
 
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-linear-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-            </button>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-xl bg-linear-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
+              </button>
+            </Link>
           </div>
 
           {/* Trust Line */}
