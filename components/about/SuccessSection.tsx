@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, TrendingUp, Clock, Target, Zap } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { ArrowRight, TrendingUp, Clock, Target, Zap } from "lucide-react";
+import Link from "next/link";
 
 interface MetricCardProps {
   value: string;
@@ -9,8 +10,14 @@ interface MetricCardProps {
   isInView: boolean;
 }
 
-function MetricCard({ value, text, icon: Icon, index, isInView }: MetricCardProps) {
-  const [displayValue, setDisplayValue] = useState('');
+function MetricCard({
+  value,
+  text,
+  icon: Icon,
+  index,
+  isInView,
+}: MetricCardProps) {
+  const [displayValue, setDisplayValue] = useState("");
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -34,7 +41,7 @@ function MetricCard({ value, text, icon: Icon, index, isInView }: MetricCardProp
   return (
     <div
       className={`group relative p-8 rounded-2xl bg-slate-900/50 border border-slate-700/50 backdrop-blur-sm hover:border-slate-600 hover:bg-slate-900/70 transition-all duration-500 ${
-        isInView ? 'animate-fadeUp' : 'opacity-0'
+        isInView ? "animate-fadeUp" : "opacity-0"
       }`}
       style={{ animationDelay: `${0.2 + index * 0.15}s` }}
     >
@@ -50,7 +57,11 @@ function MetricCard({ value, text, icon: Icon, index, isInView }: MetricCardProp
       <div className="mb-4">
         <h3 className="text-3xl sm:text-4xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
           {displayValue}
-          <span className={`inline-block w-1 h-8 bg-blue-400 ml-1 ${hasAnimated ? 'opacity-0' : 'animate-blink'}`}></span>
+          <span
+            className={`inline-block w-1 h-8 bg-blue-400 ml-1 ${
+              hasAnimated ? "opacity-0" : "animate-blink"
+            }`}
+          ></span>
         </h3>
       </div>
 
@@ -88,29 +99,29 @@ export default function SuccessMetricsSection() {
 
   const metrics = [
     {
-      value: '+Qualified Leads',
-      text: 'We prioritize intent over volume — so sales teams talk to better prospects.',
-      icon: Target
+      value: "+Qualified Leads",
+      text: "We prioritize intent over volume — so sales teams talk to better prospects.",
+      icon: Target,
     },
     {
-      value: 'Faster Response Time',
-      text: 'Every second matters. Ryze engages users instantly, 24/7.',
-      icon: Clock
+      value: "Faster Response Time",
+      text: "Every second matters. Ryze engages users instantly, 24/7.",
+      icon: Clock,
     },
     {
-      value: 'Higher Conversion Rates',
-      text: 'Conversations convert better than forms — every time.',
-      icon: TrendingUp
+      value: "Higher Conversion Rates",
+      text: "Conversations convert better than forms — every time.",
+      icon: TrendingUp,
     },
     {
-      value: 'Less Manual Work',
-      text: 'Automation reduces follow-ups, routing, and admin overhead.',
-      icon: Zap
-    }
+      value: "Less Manual Work",
+      text: "Automation reduces follow-ups, routing, and admin overhead.",
+      icon: Zap,
+    },
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative py-20 sm:py-24 lg:py-32 bg-slate-950 overflow-hidden"
     >
@@ -125,19 +136,21 @@ export default function SuccessMetricsSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div 
+        <div
           className={`text-center max-w-4xl mx-auto mb-16 lg:mb-20 transition-all duration-700 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           {/* Label */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm mb-6">
-            <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider">Our Focus</span>
+            <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider">
+              Our Focus
+            </span>
           </div>
 
           {/* Main Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
-            Success Is Measured in{' '}
+            Success Is Measured in{" "}
             <span className="bg-linear-to-r from-blue-400 via-cyan-400 to-purple-400 text-transparent bg-clip-text">
               Outcomes — Not Features
             </span>
@@ -145,7 +158,8 @@ export default function SuccessMetricsSection() {
 
           {/* Supporting Line */}
           <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">
-            Ryze is built around one goal: helping teams convert the right visitors into real business opportunities.
+            Ryze is built around one goal: helping teams convert the right
+            visitors into real business opportunities.
           </p>
         </div>
 
@@ -164,35 +178,39 @@ export default function SuccessMetricsSection() {
         </div>
 
         {/* Closing Line */}
-        <div 
+        <div
           className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ transitionDelay: '0.9s' }}
+          style={{ transitionDelay: "0.9s" }}
         >
           <div className="p-6 rounded-2xl bg-linear-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 border border-blue-500/20 backdrop-blur-sm">
             <p className="text-xl sm:text-2xl text-white font-medium leading-relaxed">
-              If Ryze isn't improving conversion quality,{' '}
+              If Ryze isn't improving conversion quality,{" "}
               <span className="text-blue-400">it isn't doing its job</span>.
             </p>
           </div>
         </div>
 
         {/* Final CTA */}
-        <div 
+        <div
           className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ transitionDelay: '1.1s' }}
+          style={{ transitionDelay: "1.1s" }}
         >
-          <button className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300">
-            See Ryze in Action
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-300 hover:text-white font-medium transition-colors duration-300">
-            View Case Studies
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <Link href="/">
+            <button className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300">
+              See Ryze in Action
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+          <Link href="/case-studies">
+            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-300 hover:text-white font-medium transition-colors duration-300">
+              View Case Studies
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -209,8 +227,13 @@ export default function SuccessMetricsSection() {
         }
 
         @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
         }
 
         .animate-fadeUp {

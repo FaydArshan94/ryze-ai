@@ -128,22 +128,16 @@ export default function Navbar() {
         >
           <div className="flex-1 space-y-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-4 py-3 text-lg font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#login"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 text-lg font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors"
-            >
-              Login
-            </a>
+            
           </div>
 
           {/* Mobile CTA */}
