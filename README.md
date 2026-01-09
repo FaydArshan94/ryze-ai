@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ryze AI – Marketing Website
 
-## Getting Started
+A modern, high-performance SaaS marketing website built to showcase Ryze AI’s product, value proposition, and case studies with smooth interactions and a strong visual identity.
 
-First, run the development server:
+-->> Project Overview
 
-```bash
+Ryze AI is an AI-driven lead engagement platform. This website is designed to clearly communicate its capabilities, build trust through case studies, and guide users toward conversion through well-structured sections, smooth animations, and a consistent brand experience.
+
+The focus of this project is clean architecture, smooth UX, scalability, and performance.
+
+-->> Tech Stack
+
+Next.js (App Router)
+
+React
+
+TypeScript
+
+Tailwind CSS
+
+GSAP & Framer Motion (animations)
+
+Lenis (smooth scrolling)
+
+Lucide Icons
+
+
+-->> Key Features
+
+Smooth scrolling across all pages
+
+Scroll-triggered animations (GSAP)
+
+Responsive design for all screen sizes
+
+Reusable, component-based architecture
+
+Animated hero sections, AI flows, and case studies
+
+Modular navbar and footer
+
+Optimized production build with Next.js
+
+-->> Design & UX Decisions
+
+A dark, modern color palette was chosen to reflect a premium AI SaaS brand.
+
+Animations are subtle and purposeful, enhancing clarity instead of distracting users.
+
+Case studies use interactive visuals to demonstrate real impact rather than static content.
+
+Layouts are designed to guide attention naturally toward CTAs.
+
+Typography and spacing are kept consistent across all pages to maintain visual harmony.
+
+
+-->> Architecture & Structure
+
+The project uses a component-based structure for easy reuse and maintenance.
+
+Common UI elements (Navbar, Footer, Loaders) are shared across pages.
+
+Animations are isolated per section to avoid global side effects.
+
+Smooth scrolling is applied at the layout level to ensure consistency.
+
+Pages are structured for scalability, making it easy to add new sections or routes.
+
+
+-->> Pages Included
+
+Home
+
+Case Studies
+
+About
+
+Pricing / Plans
+
+
+-->> Performance Considerations
+
+Minimal animation overhead
+
+Scroll-based animations trigger only when needed
+
+Optimized assets and clean Tailwind usage
+
+Production-ready build using next build
+
+
+-->> Setup Instructions
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Create production build
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-->> Notes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built as an assignment with a focus on real-world SaaS standards, clean code practices, and strong UI/UX fundamentals rather than copying existing designs.
