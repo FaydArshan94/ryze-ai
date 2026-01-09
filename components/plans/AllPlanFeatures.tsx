@@ -1,21 +1,44 @@
-import { Check, ArrowRight, Sparkles, TrendingUp, Clock, Users, Shield, Zap, ChevronDown } from 'lucide-react';
+import { Sparkles, TrendingUp, Clock, Users, Shield, Zap } from "lucide-react";
 
-
-
+import { motion, Variants } from "framer-motion";
 
 export default function AllPlansFeatures() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
   const features = [
-    { icon: Clock, text: '24/7 AI availability' },
-    { icon: Shield, text: 'Secure & compliant' },
-    { icon: Zap, text: 'Works across all pages' },
-    { icon: Sparkles, text: 'No-code setup' },
-    { icon: TrendingUp, text: 'Continuous AI improvements' },
-    { icon: Users, text: 'Unlimited team members' }
+    { icon: Clock, text: "24/7 AI availability" },
+    { icon: Shield, text: "Secure & compliant" },
+    { icon: Zap, text: "Works across all pages" },
+    { icon: Sparkles, text: "No-code setup" },
+    { icon: TrendingUp, text: "Continuous AI improvements" },
+    { icon: Users, text: "Unlimited team members" },
   ];
 
   return (
     <section className="py-16 sm:py-20 bg-slate-950">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
           Every plan includes
         </h2>
@@ -31,17 +54,23 @@ export default function AllPlansFeatures() {
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5 text-blue-400" />
                 </div>
-                <span className="text-slate-200 font-medium">{feature.text}</span>
+                <span className="text-slate-200 font-medium">
+                  {feature.text}
+                </span>
               </div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       <style jsx>{`
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         .animate-fadeIn {
           animation: fadeIn 0.5s ease-out forwards;

@@ -8,7 +8,8 @@ import {
   Play,
 } from "lucide-react";
 
-import { motion,Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 export default function HeroSection() {
   const container = {
     hidden: { opacity: 0 },
@@ -107,28 +108,30 @@ export default function HeroSection() {
             </div>
 
             {/* CTAs */}
-            <motion.div
-              variants={item}
-              className="flex flex-col  sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+            <Link href="/plans">
+              <motion.div
+                variants={item}
+                className="flex flex-col  sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <span className="flex items-center justify-center gap-2">
-                  Get Free Demo
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Get Free Demo
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </motion.button>
 
-              <button className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg font-semibold text-white hover:bg-white/10 transition-all duration-300">
-                <span className="flex items-center justify-center gap-2">
-                  <Play className="w-5 h-5" />
-                  See How It Works
-                </span>
-              </button>
-            </motion.div>
+                <button className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg font-semibold text-white hover:bg-white/10 transition-all duration-300">
+                  <span className="flex items-center justify-center gap-2">
+                    <Play className="w-5 h-5" />
+                    See How It Works
+                  </span>
+                </button>
+              </motion.div>
+            </Link>
 
             {/* Trust badges */}
             <motion.div variants={item} className="pt-8">

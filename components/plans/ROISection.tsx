@@ -1,33 +1,46 @@
+import MetricCard from "./PlanMetricCards";
+
+
 export default function ROISection() {
   const metrics = [
-    { value: '2.8×', label: 'lead qualification rate', trend: 'up' },
-    { value: '60%', label: 'manual follow-ups', trend: 'down' },
-    { value: '35%', label: 'demo bookings', trend: 'up' }
+    { 
+      value: '2.8×', 
+      label: 'lead qualification rate', 
+      trend: 'up' as const,
+      details: 'AI qualification delivers 2.8x more qualified leads compared to traditional form-based approaches.'
+    },
+    { 
+      value: '60%', 
+      label: 'manual follow-ups', 
+      trend: 'down' as const,
+      details: 'Automation eliminates 60% of manual follow-up tasks, freeing your team to focus on closing deals.'
+    },
+    { 
+      value: '35%', 
+      label: 'demo bookings', 
+      trend: 'up' as const,
+      details: 'Real-time AI conversations convert 35% more visitors into scheduled demo appointments.'
+    }
   ];
 
   return (
-    <section className="py-20 sm:py-24 bg-slate-950">
+    <section className="py-20 sm:py-24 bg-slate-950 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mb-4">
-          Think Investment, Not Cost
-        </h2>
-        <p className="text-xl text-slate-400 text-center mb-12">
-          Average results our customers see within 90 days
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Think Investment, Not Cost
+          </h2>
+          <p className="text-xl text-slate-400 mb-2">
+            Average results our customers see within 90 days
+          </p>
+          <p className="text-sm text-slate-500">
+            💡 Click the cards to see more details
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="p-8 rounded-2xl bg-slate-900/50 border border-slate-700/50 text-center hover:border-slate-600 transition-all duration-300"
-            >
-              <div className={`text-5xl font-bold mb-2 ${
-                metric.trend === 'up' ? 'text-green-400' : 'text-blue-400'
-              }`}>
-                {metric.trend === 'down' && '↓ '}{metric.value}{metric.trend === 'up' && ' ↑'}
-              </div>
-              <div className="text-slate-300">{metric.label}</div>
-            </div>
+            <MetricCard key={index} metric={metric} index={index} />
           ))}
         </div>
       </div>

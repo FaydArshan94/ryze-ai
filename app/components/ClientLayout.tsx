@@ -2,6 +2,8 @@
 
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+import ScrollToTop from "./ScrollToTop";
+
 
 export default function ClientLayout({
   children,
@@ -10,6 +12,7 @@ export default function ClientLayout({
 }) {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       {children}
       <Footer />

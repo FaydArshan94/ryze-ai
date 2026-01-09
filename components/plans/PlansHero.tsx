@@ -10,13 +10,32 @@ import {
   Zap,
   ChevronDown,
 } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
-// 1. Plans Hero
 export default function PlansHero() {
   const scrollToPlans = () => {
     document
       .getElementById("plans-section")
       ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
   };
 
   return (
@@ -29,18 +48,29 @@ export default function PlansHero() {
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[32px_32px]"></div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center"
+      >
+        <motion.h1
+          variants={item}
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight"
+        >
           Flexible plans designed
           <br />
           around your growth
-        </h1>
-        <p className="text-lg sm:text-xl lg:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+        </motion.h1>
+        <motion.p
+          variants={item}
+          className="text-lg sm:text-xl lg:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+        >
           Ryze adapts to your traffic, AI usage, and business goals — so you
           only pay for real value.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="group px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300">
             <span className="flex items-center gap-2">
               Get Free Demo
@@ -56,7 +86,7 @@ export default function PlansHero() {
               <ChevronDown className="w-5 h-5" />
             </span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Tier Visualization */}
         <div className="mt-16 flex items-end justify-center gap-4">
@@ -88,7 +118,7 @@ export default function PlansHero() {
             <span className="text-xs text-slate-400">Scale</span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
