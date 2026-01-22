@@ -5,7 +5,7 @@
     Next.js and GSAP to demonstrate what the modern web is capable of.
   </p>
   <br /><img
-    src="./SaaSBanner.png"
+    src="./ryzehome.jpeg"
     alt="AI SaaS Landing Page Hero"
     width="800px"
     style="
