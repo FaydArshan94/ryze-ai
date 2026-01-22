@@ -1,5 +1,5 @@
 <div align="center">
-  NEXT-GEN AI SAASBeyond Templates. Pure Kinetic UI.
+  NEXT-GEN AI SAAS Beyond Templates. Pure Kinetic UI.
   <p style="font-size: 1.1rem; color: #555">
     A fully custom, motion-driven landing page for AI Software. Engineered with
     Next.js and GSAP to demonstrate what the modern web is capable of.
@@ -42,7 +42,7 @@
 <br /><br />
 <hr />
 <br /><br />
-✨ The PhilosophyNo templates. No shortcuts.This project is a rejection of
+✨ The Philosophy No templates. No shortcuts.This project is a rejection of
 cookie-cutter UI. Every interaction, from the rotation of the 3D orbit to the
 glass-like texture of the cards, is custom-coded to ensure pixel-perfect
 responsiveness and performance."Motion isn't just decoration; it's
@@ -94,12 +94,12 @@ into a touch-optimized mobile layout.</p>
 <br />
 
 <p>
-🎭 GSAP OrchestrationScroll-triggered animations that reveal content precisely
+🎭 GSAP Orchestration Scroll-triggered animations that reveal content precisely
 when the user needs to see it.</p>
 
 <br />
 
-<p>💎 Custom GradientsHand-picked color palettes that evoke a futuristic, high-tech
+<p>💎 Custom Gradients Hand-picked color palettes that evoke a futuristic, high-tech
 AI brand identity.</p>
 
 <br />
